@@ -93,7 +93,7 @@
         </div>
       </div>
     </section>
-    <form id="form" class="container m-5 box" method="POST" action="https://script.google.com/macros/s/AKfycbyYZSt7_Enn2ScQkDeE36fbJ3cL8w_QOFQUWJX7YynnXOqfuHDd3X-qjDHCwVolf2vzgQ/exec" enctype="multipart/form-data" style="border-radius: 10px; padding: 2rem; box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);">
+    <form id="form" class="container m-5 box" method="POST" action="https://script.google.com/macros/s/AKfycbzT9KqcmsklNdITqAbzVXssQoS134zrD79IUq_LVn2hdYr2jzAvc66yLDzCiHeVx8HGsw/exec" enctype="multipart/form-data" style="border-radius: 10px; padding: 2rem; box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);">
       <div class="field">
         <label class="label">BDE Name</label>
         <div class="control has-icons-left">
@@ -522,7 +522,7 @@
 
         // Send a POST request to your Google Apps Script
         fetch(
-          "https://script.google.com/macros/s/AKfycbyYZSt7_Enn2ScQkDeE36fbJ3cL8w_QOFQUWJX7YynnXOqfuHDd3X-qjDHCwVolf2vzgQ/exec",
+          "https://script.google.com/macros/s/AKfycbzT9KqcmsklNdITqAbzVXssQoS134zrD79IUq_LVn2hdYr2jzAvc66yLDzCiHeVx8HGsw/exec",
           {
             redirect: "follow",
             method: "POST",
@@ -563,11 +563,11 @@
             document.getElementById("message").style.display = "block";
           });
           const services = $('#servicesNameSelect').val(); // Get selected values as an array
-        if (services) {
-          services.forEach(service => {
+          if (services) {
+            services.forEach(service => {
             formData.append("Services[]", service);
-          });
-        }
+            });
+          }
       });
     </script>
     <script>
