@@ -18,67 +18,54 @@
       body {
         background-color: #f8f9fa;
       }
-
       .hero.is-primary {
         background: linear-gradient(45deg, #4a90e2, #50c6e1);
       }
-
       .input,
       .textarea,
       .select select {
         border-radius: 6px;
         border: 1px solid #ced4da;
       }
-
       .input:focus,
       .textarea:focus,
       .select select:focus {
         border-color: #4a90e2;
         box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
       }
-
       .button.is-primary {
         background-color: #4a90e2;
         border-color: #4a90e2;
       }
-
       .button.is-primary:hover {
         background-color: #357ab7;
         border-color: #357ab7;
       }
-
       .button.is-danger {
         background-color: #e74c3c;
         border-color: #e74c3c;
       }
-
       .button.is-danger:hover {
         background-color: #c0392b;
         border-color: #c0392b;
       }
-
       .message {
         font-size: 1rem;
         font-weight: 600;
       }
-
       #servicesNameSelect {
         width: 100%;
       }
-
       .field {
         margin-bottom: 1.5rem;
       }
-
       .control span {
         color: #4a90e2;
       }
-
       #emailError {
         font-size: 0.9rem;
         margin-top: 5px;
       }
-
       .is-grouped .control {
         margin-right: 1rem;
       }
@@ -93,7 +80,7 @@
         </div>
       </div>
     </section>
-    <form id="form" class="container m-5 box" method="POST" action="https://script.google.com/macros/s/AKfycbzT9KqcmsklNdITqAbzVXssQoS134zrD79IUq_LVn2hdYr2jzAvc66yLDzCiHeVx8HGsw/exec" enctype="multipart/form-data" style="border-radius: 10px; padding: 2rem; box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);">
+    <form id="form" class="container m-5 box" method="POST" action="https://script.google.com/macros/s/AKfycbxtsxtThQnwExJs7-t9fs4wyCLgNT-xcgTsy8ljwJ5Ulh5kAfOLbsSs5WTMzo5A6Pt92w/exec" enctype="multipart/form-data" style="border-radius: 10px; padding: 2rem; box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);">
       <div class="field">
         <label class="label">BDE Name</label>
         <div class="control has-icons-left">
@@ -241,18 +228,33 @@
         function removeEmailField(button) {
           button.parentElement.remove();
         }
+        
         // Function to validate the email
         function validateEmail(input) {
           const emailError = document.getElementById('emailError');
-          const email = input.value;
-          const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-          // Show error message if email is invalid
-          if (email && !emailPattern.test(email)) {
-            emailError.style.display = 'block';
-          } else {
-            emailError.style.display = 'none';
+          const email = input.value.trim(); // Trim spaces from input
+          const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/; // Validate Gmail address format
+
+          // Step 1: Check general Gmail email format
+          if (!emailPattern.test(email)) {
+           emailError.style.display = 'block';
+           emailError.textContent = 'Please enter a valid Gmail address (e.g., example@gmail.com).';
+           return;
           }
-       }
+
+          // Step 2: Check for mistakes before "@gmail.com"
+          const localPart = email.split('@')[0]; // Get the part before @gmail.com
+          const invalidCharPattern = /[^a-zA-Z0-9._%+-]/; // Invalid characters for email
+
+          if (invalidCharPattern.test(localPart)) {
+           emailError.style.display = 'block';
+           emailError.textContent = 'The email contains invalid characters. Only letters, numbers, and ._%+- are allowed before @gmail.com.';
+           return;
+          }
+
+          // If all checks pass
+          emailError.style.display = 'none';
+        }
       </script>
 
       <div class="field">
@@ -522,7 +524,7 @@
 
         // Send a POST request to your Google Apps Script
         fetch(
-          "https://script.google.com/macros/s/AKfycbzT9KqcmsklNdITqAbzVXssQoS134zrD79IUq_LVn2hdYr2jzAvc66yLDzCiHeVx8HGsw/exec",
+          "https://script.google.com/macros/s/AKfycbxtsxtThQnwExJs7-t9fs4wyCLgNT-xcgTsy8ljwJ5Ulh5kAfOLbsSs5WTMzo5A6Pt92w/exec",
           {
             redirect: "follow",
             method: "POST",
@@ -564,8 +566,8 @@
           });
           const services = $('#servicesNameSelect').val(); // Get selected values as an array
           if (services) {
-            services.forEach(service => {
-            formData.append("Services[]", service);
+           services.forEach(service => {
+             formData.append("Services[]", service);
             });
           }
       });
