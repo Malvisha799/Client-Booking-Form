@@ -80,7 +80,7 @@
         </div>
       </div>
     </section>
-    <form id="form" class="container m-5 box" method="POST" action="https://script.google.com/macros/s/AKfycbxtsxtThQnwExJs7-t9fs4wyCLgNT-xcgTsy8ljwJ5Ulh5kAfOLbsSs5WTMzo5A6Pt92w/exec" enctype="multipart/form-data" style="border-radius: 10px; padding: 2rem; box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);">
+    <form id="form" class="container m-5 box" method="POST" action="https://script.google.com/macros/s/AKfycbwhkvjs15zTxOaJE1RjukJFk3IFs1VD3U-9qln8qnDX4qAMPakH4USvu97oSVCVYU5f7A/exec" enctype="multipart/form-data" style="border-radius: 10px; padding: 2rem; box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);">
       <div class="field">
         <label class="label">BDE Name</label>
         <div class="control has-icons-left">
@@ -343,20 +343,40 @@
         });
      </script>
 
-     <div class="field">
-       <label class="label">Basic Payment Amount</label>
-       <div class="control has-icons-left">
-         <input 
-         class="input" 
-         type="number" 
-         placeholder="Enter Basic Payment Amount" 
-         id="totalAmount" 
-         oninput="calculateAmounts()"
-         name="Basic Payment Amount"
-         />
-         <span class="icon is-left"><i class="fa-duotone fa-solid fa-indian-rupee-sign"></i></span>
-       </div>
-     </div>
+     <div class="equal-fields"> 
+       <div class="field">
+          <label class="label">Total Payment Amount(without GST)</label>
+          <div class="control has-icons-left">
+            <input 
+             class="input" 
+             type="number" 
+             placeholder="Enter Basic Payment Amount" 
+             id="totalAmount" 
+             oninput="calculateAmounts()"
+             name="Basic Payment Amount"
+            />
+            <span class="icon is-left"><i class="fa-duotone fa-solid fa-indian-rupee-sign"></i></span>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">₹ Remarks</label>
+          <input 
+            class="input" 
+            type="text" 
+            placeholder="Enter remarks here" 
+            id="remarks" 
+            name="Remarks"
+          />
+        </div>
+      </div>
+      <style>
+        .equal-fields {
+          display: grid;
+          grid-template-columns: 1fr 1fr; /* Two equal columns */
+          gap: 20px; /* Space between fields */
+          align-items: start; /* Align fields at the top */
+        }
+      </style>
 
      <!-- <div class="field">
        <label class="label">GST Percentage</label>
@@ -370,21 +390,43 @@
           />
         </div>
      </div> -->
-     <div class="field">
-       <label class="label">Received Amount - Including GST</label>
-        <div class="control has-icons-left">
-         <input
-          class="input"
-          type="number"
-          placeholder="Enter Received Amount"
-          id="receivedAmount"
-          oninput="calculateAmounts()"
-          name="Received Amount - Including GST"
-         />
-         <span class="icon is-left"><i class="fa-duotone fa-solid fa-indian-rupee-sign"></i></span>
+
+     <div class="equal-fields">
+       <div class="field">
+          <label class="label">Received Amount - Including GST</label>
+          <div class="control has-icons-left">
+           <input
+           class="input"
+           type="number"
+           placeholder="Enter Received Amount"
+           id="receivedAmount"
+           oninput="calculateAmounts()"
+           name="Received Amount - Including GST"
+           />
+           <span class="icon is-left"><i class="fa-duotone fa-solid fa-indian-rupee-sign"></i></span>
+         </div>
+       </div>
+       <div class="field">
+          <label class="label">₹ Remarks</label>
+          <input 
+          class="input" 
+          type="text" 
+          placeholder="Enter remarks here" 
+          id="remarks" 
+          name="Remarks1"
+          />
        </div>
      </div>
+     <style>
+      .equal-fields {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two equal columns */
+        gap: 20px; /* Space between fields */
+        align-items: start; /* Align fields at the top */
+      }
+    </style>
 
+    <div class="equal-fields">
      <div class="field">
        <label class="label">Remaining Amount - Including GST</label>
        <div class="control has-icons-left">
@@ -398,6 +440,25 @@
          <span class="icon is-left"><i class="fa-duotone fa-solid fa-indian-rupee-sign"></i></span>
        </div>
      </div>
+     <div class="field">
+       <label class="label">₹ Remarks</label>
+       <input 
+       class="input" 
+       type="text" 
+       placeholder="Enter remarks here" 
+       id="remarks" 
+       name="Remarks2"
+       />
+     </div>
+    </div>
+    <style>
+      .equal-fields {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two equal columns */
+        gap: 20px; /* Space between fields */
+        align-items: start; /* Align fields at the top */
+      }
+    </style>
      <script>
        function calculateAmounts() {
         const totalAmount = parseFloat(document.getElementById('totalAmount').value) || 0;
@@ -416,18 +477,38 @@
        }
      </script>
 
-     <div class="field">
-       <label class="label">After Fund Disbursement(%)</label>
-       <div class="control has-icons-left">
-         <input
-         class="input"
-         type="number"
-         placeholder="Enter Percentage"
-         name="After Fund Disbursement"
-         />
-         <span class="icon is-left"><i class="fa-duotone fa-solid fa-percent"></i></span>
+     <div class="equal-fields">
+       <div class="field">
+          <label class="label">After Fund Disbursement(%)</label>
+          <div class="control has-icons-left">
+            <input
+            class="input"
+            type="number"
+            placeholder="Enter Percentage"
+            name="After Fund Disbursement"
+            />
+            <span class="icon is-left"><i class="fa-duotone fa-solid fa-percent"></i></span>
+         </div>
+       </div>
+       <div class="field">
+          <label class="label">₹ Remarks</label>
+          <input 
+           class="input" 
+           type="text" 
+           placeholder="Enter remarks here" 
+           id="remarks" 
+           name="Remarks3"
+          />
        </div>
      </div>
+     <style>
+      .equal-fields {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two equal columns */
+        gap: 20px; /* Space between fields */
+        align-items: start; /* Align fields at the top */
+      }
+    </style>
 
      <div class="field">
       <label class="label">Upload File(s) or Folder</label>
@@ -471,7 +552,7 @@
      </script>
 
      <div class="field">
-        <label class="label">Additional Information</label>
+        <label class="label">Remarks</label>
         <div class="control">
           <textarea
             class="textarea"
@@ -524,7 +605,7 @@
 
         // Send a POST request to your Google Apps Script
         fetch(
-          "https://script.google.com/macros/s/AKfycbxtsxtThQnwExJs7-t9fs4wyCLgNT-xcgTsy8ljwJ5Ulh5kAfOLbsSs5WTMzo5A6Pt92w/exec",
+          "https://script.google.com/macros/s/AKfycbwhkvjs15zTxOaJE1RjukJFk3IFs1VD3U-9qln8qnDX4qAMPakH4USvu97oSVCVYU5f7A/exec",
           {
             redirect: "follow",
             method: "POST",
