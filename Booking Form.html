@@ -237,12 +237,12 @@
           const email = input.value.trim(); // Trim spaces from input
           const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/; // Validate Gmail address format
 
-          // Step 1: Check general Gmail email format
-          if (!emailPattern.test(email)) {
-           emailError.style.display = 'block';
-           emailError.textContent = 'Please enter a valid Gmail address (e.g., example@gmail.com).';
-           return;
-          }
+          // // Step 1: Check general Gmail email format
+          // if (!emailPattern.test(email)) {
+          //  emailError.style.display = 'block';
+          //  emailError.textContent = 'Please enter a valid Gmail address (e.g., example@gmail.com).';
+          //  return;
+          // // }
 
           // Step 2: Check for mistakes before "@gmail.com"
           const localPart = email.split('@')[0]; // Get the part before @gmail.com
