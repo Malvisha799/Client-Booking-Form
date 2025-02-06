@@ -16,62 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
     <link rel="icon" type="png" href="./1683269844902 (1).png">
-    <style>
-      body {
-        background-color: #f8f9fa;
-      }
-      .hero.is-primary {
-        background: linear-gradient(45deg, #4a90e2, #50c6e1);
-      }
-      .input,
-      .textarea,
-      .select select {
-        border-radius: 6px;
-        border: 1px solid #ced4da;
-      }
-      .input:focus,
-      .textarea:focus,
-      .select select:focus {
-        border-color: #4a90e2;
-        box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
-      }
-      .button.is-primary {
-        background-color: #4a90e2;
-        border-color: #4a90e2;
-      }
-      .button.is-primary:hover {
-        background-color: #357ab7;
-        border-color: #357ab7;
-      }
-      .button.is-danger {
-        background-color: #e74c3c;
-        border-color: #e74c3c;
-      }
-      .button.is-danger:hover {
-        background-color: #c0392b;
-        border-color: #c0392b;
-      }
-      .message {
-        font-size: 1rem;
-        font-weight: 600;
-      }
-      #servicesNameSelect {
-        width: 100%;
-      }
-      .field {
-        margin-bottom: 1.5rem;
-      }
-      .control span {
-        color: #4a90e2;
-      }
-      #emailError {
-        font-size: 0.9rem;
-        margin-top: 5px;
-      }
-      .is-grouped .control {
-        margin-right: 1rem;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <section class="hero is-primary is-bold">
@@ -82,7 +27,7 @@
         </div>
       </div>
     </section>
-    <form id="form" class="container m-5 box" method="POST" action="https://script.google.com/macros/s/AKfycbwhkvjs15zTxOaJE1RjukJFk3IFs1VD3U-9qln8qnDX4qAMPakH4USvu97oSVCVYU5f7A/exec" enctype="multipart/form-data" style="border-radius: 10px; padding: 2rem; box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);">
+    <form id="form" class="container m-5 box" method="POST" action="https://script.google.com/macros/s/AKfycbzWPehW75OFe0XKt8vKqeJsNifHuLQi0JkEys6FdvYMA_nKwMKiboLFrBA8WszcLu77xw/exec" enctype="multipart/form-data" style="border-radius: 10px; padding: 2rem; box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);">
       <div class="field">
         <label class="label">BDE Name</label>
         <div class="control has-icons-left">
@@ -198,6 +143,7 @@
               style="flex: 1; margin-right: 10px;"
               id="emailInput"
               oninput="validateEmail(this)"
+              required
             />
             <span class="icon is-left"><i class="fa-solid fa-envelope"></i></span>
             <button 
@@ -242,7 +188,7 @@
           //  emailError.style.display = 'block';
           //  emailError.textContent = 'Please enter a valid Gmail address (e.g., example@gmail.com).';
           //  return;
-          // // }
+          // }
 
           // Step 2: Check for mistakes before "@gmail.com"
           const localPart = email.split('@')[0]; // Get the part before @gmail.com
@@ -366,7 +312,6 @@
               <option value="Women Startup Program">Women Startup Program</option>
               <option value="Trademark">Trademark</option>
               <option value="Logo">Logo</option>
-              <option value="Digital Service">Digital Service</option>
             </select>
        </div>
      </div>
@@ -405,14 +350,6 @@
           />
         </div>
       </div>
-      <style>
-        .equal-fields {
-          display: grid;
-          grid-template-columns: 1fr 1fr; /* Two equal columns */
-          gap: 20px; /* Space between fields */
-          align-items: start; /* Align fields at the top */
-        }
-      </style>
 
      <!-- <div class="field">
        <label class="label">GST Percentage</label>
@@ -453,18 +390,10 @@
           />
        </div>
      </div>
-     <style>
-      .equal-fields {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* Two equal columns */
-        gap: 20px; /* Space between fields */
-        align-items: start; /* Align fields at the top */
-      }
-    </style>
 
-    <div class="equal-fields">
-     <div class="field">
-       <label class="label">Remaining Amount - Including GST</label>
+     <div class="equal-fields">
+       <div class="field">
+        <label class="label">Remaining Amount - Including GST</label>
        <div class="control has-icons-left">
          <input
           class="input"
@@ -486,15 +415,7 @@
        name="Remarks2"
        />
      </div>
-    </div>
-    <style>
-      .equal-fields {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* Two equal columns */
-        gap: 20px; /* Space between fields */
-        align-items: start; /* Align fields at the top */
-      }
-    </style>
+     </div>
      <script>
        function calculateAmounts() {
         const totalAmount = parseFloat(document.getElementById('totalAmount').value) || 0;
@@ -537,18 +458,10 @@
           />
        </div>
      </div>
-     <style>
-      .equal-fields {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* Two equal columns */
-        gap: 20px; /* Space between fields */
-        align-items: start; /* Align fields at the top */
-      }
-    </style>
 
      <div class="field">
-      <label class="label">Upload File(s) or Folder</label>
-      <div class="control has-icons-left">
+       <label class="label">Upload File(s) or Folder</label>
+       <div class="control has-icons-left">
         <input 
         class="input"
         type="file"
@@ -561,8 +474,8 @@
         <span class="icon is-left">
           <i class="fas fa-folder-open"></i>
         </span>
-      </div>
-      <div id="fileList" style="margin-top: 10px; font-size: 0.9rem;"></div>
+       </div>
+       <div id="fileList" style="margin-top: 10px; font-size: 0.9rem;"></div>
      </div>
      <script>
       function handleFileSelection() {
@@ -580,7 +493,7 @@
         const fileList = document.createElement("ul");
         for (let i = 0; i < files.length; i++) {
           const fileItem = document.createElement("li");
-          fileItem.textContent = files[i].webkitRelativePath  || files[i].name;
+          fileItem.textContent = files[i].name;
           fileList.appendChild(fileItem);
         }
         fileListContainer.appendChild(fileList);
@@ -596,9 +509,9 @@
             name="Notes"
           ></textarea>
         </div>
-      </div>
+     </div>
 
-      <div class="field is-grouped">
+     <div class="field is-grouped">
         <div class="control">
           <button class="button is-primary" type="submit" id="submit-button">
             Submit
@@ -607,9 +520,8 @@
         <div class="control">
           <button class="button is-danger" type="button" onclick="clearForm()">Cancel</button>
         </div>
-      </div>
-    </form>
-    <div
+     </div>
+     <div
       id="message"
       style="
         display: none;
@@ -621,73 +533,164 @@
         border-radius: 4px;
         border-color: aquamarine;
       "
-    ></div>
-
+      >
+      </div>
+   </form>
+    
+    <div id="successModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; background-color: white; border: 1px solid #ccc; box-shadow: 0 8px 8px rgba(0, 0, 0, 0.1); text-align: center; z-index: 1000; border-radius: 8px;">
+      <div style="padding: 20px;">
+        <img src="success-icon.png" alt="Success" style="width: 80px; height: 80px; margin: 10px;">
+        <h2 style="margin-bottom: 20px; margin-top: 10px;">Done</h2>
+        <p style="margin: 20px; font-weight: 600;">Data Submitted Successfully.</p>
+        <button onclick="closeModal()" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; cursor: pointer; border-radius: 5px;">OK</button>
+      </div>
+    </div>
+    <div id="modalBackdrop" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999;"></div>
+  
     <script>
-      document.getElementById("form").addEventListener("submit", function (e) {
-        e.preventDefault(); // Prevent the default form submission
-        document.getElementById("message").textContent = "Submitting..";
-        document.getElementById("message").style.display = "block";
-        document.getElementById("submit-button").disabled = true;
+      // Function to show the modal and blur the background
+      function showModal() {
+        const modal = document.getElementById("successModal");
+        const backdrop = document.getElementById("modalBackdrop");
+        const content = document.getElementById("content");
 
-        // Collect the form data
-        var formData = new FormData(this);
-        var keyValuePairs = [];
-        for (var pair of formData.entries()) {
-          keyValuePairs.push(pair[0] + "=" + pair[1]);
+        modal.style.display = "block";
+        backdrop.style.display = "block";
+
+        // Add blur effect to the content
+        if (content) content.classList.add("blur");
+      }
+
+      // Function to close the modal, remove blur, and reset the form
+      function closeModal() {
+        const modal = document.getElementById("successModal");
+        const backdrop = document.getElementById("modalBackdrop");
+        const content = document.getElementById("content");
+        const form = document.getElementById("form");
+
+        modal.style.display = "none";
+        backdrop.style.display = "none";
+
+        // Remove blur effect
+        if (content) content.classList.remove("blur");
+
+        // Reset the form if it exists
+        if (form) form.reset();
+      }
+
+      // Form submission logic
+      document.getElementById("form").addEventListener("submit", async function (e) {
+        e.preventDefault(); // Prevent default form submission
+
+        const messageElement = document.getElementById("message");
+        const submitButton = document.getElementById("submit-button");
+        const fileInput = document.getElementById("fileUpload");
+        const form = document.getElementById("form");
+
+        // Show submitting message
+        if (messageElement) {
+          messageElement.textContent = "Submitting...";
+          messageElement.style.display = "block";
         }
 
-        var formDataString = keyValuePairs.join("&");
+        submitButton.disabled = true;
 
-        // Send a POST request to your Google Apps Script
-        fetch(
-          "https://script.google.com/macros/s/AKfycbwhkvjs15zTxOaJE1RjukJFk3IFs1VD3U-9qln8qnDX4qAMPakH4USvu97oSVCVYU5f7A/exec",
-          {
-            redirect: "follow",
-            method: "POST",
-            body: formDataString,
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-          }
-        )
-          .then(function (response) {
-            // Check if the request was successful
-            if (response) {
-              return response; // Assuming your script returns JSON response
+        try {
+          // Create FormData to include file data
+          const formData = new FormData(form);
+          const payload = {};
+
+          // Convert form data to JSON
+         formData.forEach((value, key) => {
+            if (!payload[key]) {
+             payload[key] = value;
+            } else if (Array.isArray(payload[key])) {
+              payload[key].push(value);
             } else {
-              throw new Error("Failed to submit the form.");
-            }
-          })
-          .then(function (data) {
-            // Display a success message
-            document.getElementById("message").textContent =
-              "Data submitted successfully!";
-            document.getElementById("message").style.display = "block";
-            document.getElementById("message").style.backgroundColor = "green";
-            document.getElementById("message").style.color = "beige";
-            document.getElementById("submit-button").disabled = false;
-            document.getElementById("form").reset();
+              payload[key] = [payload[key], value];
+           }
+         });
 
-            setTimeout(function () {
-              document.getElementById("message").textContent = "";
-              document.getElementById("message").style.display = "none";
-            }, 2600);
-          })
-          .catch(function (error) {
-            // Handle errors, you can display an error message here
-            console.error(error);
-            document.getElementById("message").textContent =
-              "An error occurred while submitting the form.";
-            document.getElementById("message").style.display = "block";
-          });
-          const services = $('#servicesNameSelect').val(); // Get selected values as an array
-          if (services) {
-           services.forEach(service => {
-             formData.append("Services[]", service);
-            });
+         // Handle selected services
+         const servicesSelect = document.getElementById("servicesNameSelect");
+         if (servicesSelect) {
+           const services = Array.from(servicesSelect.selectedOptions).map((option) => option.value);
+           if (services.length > 0) {
+              payload["Services[]"] = services;
+            }
           }
-      });
+
+          // Handle file upload
+          if (fileInput && fileInput.files.length > 0) {
+            payload["files[]"] = await Promise.all(
+              Array.from(fileInput.files).map(
+               (file) =>
+               new Promise((resolve, reject) => {
+                 const reader = new FileReader();
+                 reader.onload = () => {
+                   const base64 = reader.result.split(",")[1]; // Extract Base64 content
+                   resolve(base64);
+                 };
+                 reader.onerror = reject;
+                 reader.readAsDataURL(file);
+               })
+              )
+           );
+          }
+
+          // Send the payload to the server
+          const response = await fetch(
+            "https://script.google.com/macros/s/AKfycbzWPehW75OFe0XKt8vKqeJsNifHuLQi0JkEys6FdvYMA_nKwMKiboLFrBA8WszcLu77xw/exec",
+           {
+            method: "POST",
+            body: JSON.stringify(payload),
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded", // Corrected content type for JSON payload
+            },
+           }
+          );
+
+          // Handle response
+          if (!response.ok) {
+            throw new Error("Failed to submit the form.");
+          }
+
+          const data = await response.json();
+
+          // Show success modal
+          showModal();
+
+          // Optional: Show success message in the form area
+          if (messageElement) {
+            messageElement.textContent = "Form submitted successfully!";
+            messageElement.style.backgroundColor = "green";
+            messageElement.style.color = "beige";
+
+            // Hide message after a timeout
+            setTimeout(() => {
+              messageElement.textContent = "";
+              messageElement.style.display = "none";
+            }, 2600);
+          }
+        } 
+        catch (error) {
+          console.error(error);
+
+         // Show error message
+         if (messageElement) {
+            messageElement.textContent = "An error occurred while submitting the form.";
+            messageElement.style.backgroundColor = "red";
+            messageElement.style.color = "white";
+          }
+        } finally {
+          submitButton.disabled = false;
+          if (messageElement) messageElement.style.display = "none";
+        }
+     });
+
+     // Close modal when clicking the backdrop
+     document.getElementById("modalBackdrop").addEventListener("click", closeModal);
+
     </script>
     <script>
       function clearForm() {
